@@ -1,0 +1,184 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDiscoLabel">Create or edit a Disco</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!disco.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="disco.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_query">Query</label>
+            <input type="text" class="form-control" name="query" id="field_query"
+                [(ngModel)]="disco.query" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                [(ngModel)]="disco.type" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="disco.title" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_releaseTitle">Release Title</label>
+            <input type="text" class="form-control" name="releaseTitle" id="field_releaseTitle"
+                [(ngModel)]="disco.releaseTitle" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_credit">Credit</label>
+            <input type="text" class="form-control" name="credit" id="field_credit"
+                [(ngModel)]="disco.credit" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_artist">Artist</label>
+            <input type="text" class="form-control" name="artist" id="field_artist"
+                [(ngModel)]="disco.artist" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_anv">Anv</label>
+            <input type="text" class="form-control" name="anv" id="field_anv"
+                [(ngModel)]="disco.anv" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_label">Label</label>
+            <input type="text" class="form-control" name="label" id="field_label"
+                [(ngModel)]="disco.label" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_genre">Genre</label>
+            <input type="text" class="form-control" name="genre" id="field_genre"
+                [(ngModel)]="disco.genre" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_style">Style</label>
+            <input type="text" class="form-control" name="style" id="field_style"
+                [(ngModel)]="disco.style" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_country">Country</label>
+            <input type="text" class="form-control" name="country" id="field_country"
+                [(ngModel)]="disco.country" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_year">Year</label>
+            <input type="text" class="form-control" name="year" id="field_year"
+                [(ngModel)]="disco.year" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_format">Format</label>
+            <input type="text" class="form-control" name="format" id="field_format"
+                [(ngModel)]="disco.format" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_catno">Catno</label>
+            <input type="text" class="form-control" name="catno" id="field_catno"
+                [(ngModel)]="disco.catno" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_barCode">Bar Code</label>
+            <input type="text" class="form-control" name="barCode" id="field_barCode"
+                [(ngModel)]="disco.barCode" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_track">Track</label>
+            <input type="text" class="form-control" name="track" id="field_track"
+                [(ngModel)]="disco.track" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_submitter">Submitter</label>
+            <input type="text" class="form-control" name="submitter" id="field_submitter"
+                [(ngModel)]="disco.submitter" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_contributor">Contributor</label>
+            <input type="text" class="form-control" name="contributor" id="field_contributor"
+                [(ngModel)]="disco.contributor" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_condition">Condition</label>
+            <select class="form-control" name="condition" [(ngModel)]="disco.condition" id="field_condition" >
+                <option value="MINT">MINT</option>
+                <option value="NEAR_MINT">NEAR_MINT</option>
+                <option value="VERY_GOOD_PLUS">VERY_GOOD_PLUS</option>
+                <option value="VERY_GOOD">VERY_GOOD</option>
+                <option value="GOOD_PLUS">GOOD_PLUS</option>
+                <option value="GOOD">GOOD</option>
+                <option value="FAIR">FAIR</option>
+                <option value="POOR">POOR</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_discoType">Disco Type</label>
+            <select class="form-control" name="discoType" [(ngModel)]="disco.discoType" id="field_discoType" >
+                <option value="NEW">NEW</option>
+                <option value="USED">USED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_datePurchase">Date Purchase</label>
+            <div class="d-flex">
+                <input id="field_datePurchase" type="datetime-local" class="form-control" name="datePurchase" [(ngModel)]="disco.datePurchase"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dateSale">Date Sale</label>
+            <div class="d-flex">
+                <input id="field_dateSale" type="datetime-local" class="form-control" name="dateSale" [(ngModel)]="disco.dateSale"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_cover">Cover</label>
+            <input type="number" class="form-control" name="cover" id="field_cover"
+                [(ngModel)]="disco.cover" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_detail">Detail</label>
+            <input type="number" class="form-control" name="detail" id="field_detail"
+                [(ngModel)]="disco.detail" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pricePurchase">Price Purchase</label>
+            <input type="number" class="form-control" name="pricePurchase" id="field_pricePurchase"
+                [(ngModel)]="disco.pricePurchase" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_priceSale">Price Sale</label>
+            <input type="number" class="form-control" name="priceSale" id="field_priceSale"
+                [(ngModel)]="disco.priceSale" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_priceSaleStore">Price Sale Store</label>
+            <input type="number" class="form-control" name="priceSaleStore" id="field_priceSaleStore"
+                [(ngModel)]="disco.priceSaleStore" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_priceSaleThirdParty">Price Sale Third Party</label>
+            <input type="number" class="form-control" name="priceSaleThirdParty" id="field_priceSaleThirdParty"
+                [(ngModel)]="disco.priceSaleThirdParty" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_priceSaleInReal">Price Sale In Real</label>
+            <input type="number" class="form-control" name="priceSaleInReal" id="field_priceSaleInReal"
+                [(ngModel)]="disco.priceSaleInReal" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

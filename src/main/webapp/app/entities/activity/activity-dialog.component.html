@@ -1,0 +1,104 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myActivityLabel">Create or edit a Activity</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!activity.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="activity.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_date">Date</label>
+            <div class="d-flex">
+                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="activity.date"
+                />
+            </div>
+        </div>
+<!--        <div class="form-group">
+            <label class="form-control-label" for="field_dueDate">Due Date</label>
+            <div class="d-flex">
+                <input id="field_dueDate" type="datetime-local" class="form-control" name="dueDate" [(ngModel)]="activity.dueDate"
+                />
+            </div>
+        </div>-->
+        <div class="form-group">
+            <label class="form-control-label" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                [(ngModel)]="activity.reference" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="activity.description" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_quantity">Quantity</label>
+            <input type="number" class="form-control" name="quantity" id="field_quantity"
+                [(ngModel)]="activity.quantity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_amountUnit">Amount Unit</label>
+            <input type="number" class="form-control" name="amountUnit" id="field_amountUnit"
+                [(ngModel)]="activity.amountUnit" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_amountTotal">Amount Total</label>
+            <input type="number" class="form-control" name="amountTotal" id="field_amountTotal"
+                [(ngModel)]="activity.amountTotal" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_invoiceNumber">Invoice Number</label>
+            <input type="text" class="form-control" name="invoiceNumber" id="field_invoiceNumber"
+                [(ngModel)]="activity.invoiceNumber" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_paymentType">Payment Type</label>
+            <select class="form-control" name="paymentType" [(ngModel)]="activity.paymentType" id="field_paymentType" >
+                <option value="NU">NU</option>
+                <option value="CC">CC</option>
+                <option value="CD">CD</option>
+                <option value="CO">CO</option>
+                <option value="CS">CS</option>
+                <option value="DE">DE</option>
+                <option value="TR">TR</option>
+                <option value="MB">MB</option>
+                <option value="OU">OU</option>
+                <option value="CH">CH</option>
+                <option value="LC">LC</option>
+                <option value="PR">PR</option>
+                <option value="MBWAY">MBWAY</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_operation">Operation</label>
+            <select class="form-control" name="operation" [(ngModel)]="activity.operation" id="field_operation" >
+                <option value="IN">IN</option>
+                <option value="OUT">OUT</option>
+                <option value="OPEN">OPEN</option>
+                <option value="CLOSE">CLOSE</option>
+                <option value="POINT">POINT</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_supplier">Supplier</label>
+            <select class="form-control" id="field_supplier" name="supplier" [(ngModel)]="activity.supplier">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="supplierOption.id === activity.supplier?.id ? activity.supplier : supplierOption" *ngFor="let supplierOption of suppliers; trackBy: trackSupplierById">{{supplierOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

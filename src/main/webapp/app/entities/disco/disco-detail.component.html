@@ -1,0 +1,138 @@
+
+<div *ngIf="disco">
+    <h2><span>Disco</span> {{disco.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Query</span></dt>
+        <dd>
+            <span>{{disco.query}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{disco.type}}</span>
+        </dd>
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{disco.title}}</span>
+        </dd>
+        <dt><span>Release Title</span></dt>
+        <dd>
+            <span>{{disco.releaseTitle}}</span>
+        </dd>
+        <dt><span>Credit</span></dt>
+        <dd>
+            <span>{{disco.credit}}</span>
+        </dd>
+        <dt><span>Artist</span></dt>
+        <dd>
+            <span>{{disco.artist}}</span>
+        </dd>
+        <dt><span>Anv</span></dt>
+        <dd>
+            <span>{{disco.anv}}</span>
+        </dd>
+        <dt><span>Label</span></dt>
+        <dd>
+            <span>{{disco.label}}</span>
+        </dd>
+        <dt><span>Genre</span></dt>
+        <dd>
+            <span>{{disco.genre}}</span>
+        </dd>
+        <dt><span>Style</span></dt>
+        <dd>
+            <span>{{disco.style}}</span>
+        </dd>
+        <dt><span>Country</span></dt>
+        <dd>
+            <span>{{disco.country}}</span>
+        </dd>
+        <dt><span>Year</span></dt>
+        <dd>
+            <span>{{disco.year}}</span>
+        </dd>
+        <dt><span>Format</span></dt>
+        <dd>
+            <span>{{disco.format}}</span>
+        </dd>
+        <dt><span>Catno</span></dt>
+        <dd>
+            <span>{{disco.catno}}</span>
+        </dd>
+        <dt><span>Bar Code</span></dt>
+        <dd>
+            <span>{{disco.barCode}}</span>
+        </dd>
+        <dt><span>Track</span></dt>
+        <dd>
+            <span>{{disco.track}}</span>
+        </dd>
+        <dt><span>Submitter</span></dt>
+        <dd>
+            <span>{{disco.submitter}}</span>
+        </dd>
+        <dt><span>Contributor</span></dt>
+        <dd>
+            <span>{{disco.contributor}}</span>
+        </dd>
+        <dt><span>Condition</span></dt>
+        <dd>
+            <span>{{disco.condition}}</span>
+        </dd>
+        <dt><span>Disco Type</span></dt>
+        <dd>
+            <span>{{disco.discoType}}</span>
+        </dd>
+        <dt><span>Date Purchase</span></dt>
+        <dd>
+            <span>{{disco.datePurchase | date:'medium'}}</span>
+        </dd>
+        <dt><span>Date Sale</span></dt>
+        <dd>
+            <span>{{disco.dateSale | date:'medium'}}</span>
+        </dd>
+        <dt><span>Cover</span></dt>
+        <dd>
+            <span>{{disco.cover}}</span>
+        </dd>
+        <dt><span>Detail</span></dt>
+        <dd>
+            <span>{{disco.detail}}</span>
+        </dd>
+        <dt><span>Price Purchase</span></dt>
+        <dd>
+            <span>{{disco.pricePurchase}}</span>
+        </dd>
+        <dt><span>Price Sale</span></dt>
+        <dd>
+            <span>{{disco.priceSale}}</span>
+        </dd>
+        <dt><span>Price Sale Store</span></dt>
+        <dd>
+            <span>{{disco.priceSaleStore}}</span>
+        </dd>
+        <dt><span>Price Sale Third Party</span></dt>
+        <dd>
+            <span>{{disco.priceSaleThirdParty}}</span>
+        </dd>
+        <dt><span>Price Sale In Real</span></dt>
+        <dd>
+            <span>{{disco.priceSaleInReal}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'disco/'+ disco.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

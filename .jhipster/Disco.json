@@ -1,0 +1,130 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "query",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "releaseTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "credit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "artist",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "label",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "genre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "style",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "format",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "catno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "barCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "track",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "submitter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contributor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "condition",
+            "fieldType": "Condition",
+            "fieldValues": "MINT,NEAR_MINT,VERY_GOOD_PLUS,VERY_GOOD,GOOD_PLUS,GOOD,FAIR,POOR"
+        },
+        {
+            "fieldName": "discoType",
+            "fieldType": "DiscoType",
+            "fieldValues": "NEW,USED"
+        },
+        {
+            "fieldName": "datePurchase",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateSale",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "cover",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "detail",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "pricePurchase",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "priceSale",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "priceSaleStore",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "priceSaleThirdParty",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "priceSaleInReal",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20180912213419",
+    "entityTableName": "disco",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

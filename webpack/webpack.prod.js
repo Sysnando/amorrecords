@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const Visualizer = require('webpack-visualizer-plugin');
@@ -81,11 +80,7 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             mainPath: utils.root('src/main/webapp/app/app.main.ts'),
             tsConfigPath: utils.root('tsconfig-aot.json'),
             sourceMap: true
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            debug: false
-        }),
+        }),        
         new WorkboxPlugin.GenerateSW({
           clientsClaim: true,
           skipWaiting: true,

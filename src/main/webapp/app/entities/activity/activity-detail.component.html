@@ -1,0 +1,68 @@
+
+<div *ngIf="activity">
+    <h2><span>Activity</span> {{activity.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Date</span></dt>
+        <dd>
+            <span>{{activity.date | date:'medium'}}</span>
+        </dd>
+        <dt><span>Due Date</span></dt>
+        <dd>
+            <span>{{activity.dueDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Reference</span></dt>
+        <dd>
+            <span>{{activity.reference}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{activity.description}}</span>
+        </dd>
+        <dt><span>Quantity</span></dt>
+        <dd>
+            <span>{{activity.quantity}}</span>
+        </dd>
+        <dt><span>Amount Unit</span></dt>
+        <dd>
+            <span>{{activity.amountUnit}}</span>
+        </dd>
+        <dt><span>Amount Total</span></dt>
+        <dd>
+            <span>{{activity.amountTotal}}</span>
+        </dd>
+        <dt><span>Invoice Number</span></dt>
+        <dd>
+            <span>{{activity.invoiceNumber}}</span>
+        </dd>
+        <dt><span>Payment Type</span></dt>
+        <dd>
+            <span>{{activity.paymentType}}</span>
+        </dd>
+        <dt><span>Operation</span></dt>
+        <dd>
+            <span>{{activity.operation}}</span>
+        </dd>
+        <dt><span>Supplier</span></dt>
+        <dd>
+            <div *ngIf="activity.supplier">
+                <a [routerLink]="['/supplier', activity.supplier?.id]">{{activity.supplier?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'activity/'+ activity.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "disco",
+            "otherEntityName": "disco",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "product"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bar",
+            "otherEntityName": "bar",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "product"
+        },
+        {
+            "relationshipName": "activity",
+            "otherEntityName": "activity",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "supplier",
+            "otherEntityName": "supplier",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912213415",
+    "entityTableName": "product",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

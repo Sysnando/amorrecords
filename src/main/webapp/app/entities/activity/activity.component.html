@@ -1,0 +1,82 @@
+<div>
+    <h2>
+        <span>Activities</span>
+        <button class="btn btn-primary float-right jh-create-entity create-activity" [routerLink]="['/', { outlets: { popup: ['activity-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Activity
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="activities">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Date</span></th>
+            <!--<th><span>Due Date</span></th>-->
+            <th><span>Reference</span></th>
+            <th><span>Description</span></th>
+            <th><span>Quantity</span></th>
+            <th><span>Amount Unit</span></th>
+            <th><span>Amount Total</span></th>
+            <th><span>Invoice Number</span></th>
+            <th><span>Payment Type</span></th>
+            <th><span>Operation</span></th>
+            <th><span>Supplier</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let activity of activities ;trackBy: trackId">
+                <td><a [routerLink]="['../activity', activity.id ]">{{activity.id}}</a></td>
+                <td>{{activity.date | date:'medium'}}</td>
+                <!--<td>{{activity.dueDate | date:'medium'}}</td>-->
+                <td>{{activity.reference}}</td>
+                <td>{{activity.description}}</td>
+                <td>{{activity.quantity}}</td>
+                <td>{{activity.amountUnit}}</td>
+                <td>{{activity.amountTotal}}</td>
+                <td>{{activity.invoiceNumber}}</td>
+                <td>{{activity.paymentType}}</td>
+                <td>{{activity.operation}}</td>
+                <td>
+                    <div *ngIf="activity.supplier">
+                        <a [routerLink]="['../supplier', activity.supplier?.id ]" >{{activity.supplier?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../activity', activity.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'activity/'+ activity.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'activity/'+ activity.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

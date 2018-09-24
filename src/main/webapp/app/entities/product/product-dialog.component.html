@@ -1,0 +1,58 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProductLabel">Create or edit a Product</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!product.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="product.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="product.name" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_disco">Disco</label>
+            <select class="form-control" id="field_disco" name="disco" [(ngModel)]="product.disco">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="discoOption.id === product.disco?.id ? product.disco : discoOption" *ngFor="let discoOption of discos; trackBy: trackDiscoById">{{discoOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_bar">Bar</label>
+            <select class="form-control" id="field_bar" name="bar" [(ngModel)]="product.bar">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="barOption.id === product.bar?.id ? product.bar : barOption" *ngFor="let barOption of bars; trackBy: trackBarById">{{barOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_activity">Activity</label>
+            <select class="form-control" id="field_activity" name="activity" [(ngModel)]="product.activity" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="activityOption.id === product.activity?.id ? product.activity : activityOption" *ngFor="let activityOption of activities; trackBy: trackActivityById">{{activityOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_supplier">Supplier</label>
+            <select class="form-control" id="field_supplier" name="supplier" [(ngModel)]="product.supplier" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="supplierOption.id === product.supplier?.id ? product.supplier : supplierOption" *ngFor="let supplierOption of suppliers; trackBy: trackSupplierById">{{supplierOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

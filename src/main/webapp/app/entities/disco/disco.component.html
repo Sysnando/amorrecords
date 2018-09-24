@@ -1,0 +1,114 @@
+<div>
+    <h2>
+        <span>Discos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-disco" [routerLink]="['/', { outlets: { popup: ['disco-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Disco
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="discos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Query</span></th>
+            <th><span>Type</span></th>
+            <th><span>Title</span></th>
+            <th><span>Release Title</span></th>
+            <th><span>Credit</span></th>
+            <th><span>Artist</span></th>
+            <th><span>Anv</span></th>
+            <th><span>Label</span></th>
+            <th><span>Genre</span></th>
+            <th><span>Style</span></th>
+            <th><span>Country</span></th>
+            <th><span>Year</span></th>
+            <th><span>Format</span></th>
+            <th><span>Catno</span></th>
+            <th><span>Bar Code</span></th>
+            <th><span>Track</span></th>
+            <th><span>Submitter</span></th>
+            <th><span>Contributor</span></th>
+            <th><span>Condition</span></th>
+            <th><span>Disco Type</span></th>
+            <th><span>Date Purchase</span></th>
+            <th><span>Date Sale</span></th>
+            <th><span>Cover</span></th>
+            <th><span>Detail</span></th>
+            <th><span>Price Purchase</span></th>
+            <th><span>Price Sale</span></th>
+            <th><span>Price Sale Store</span></th>
+            <th><span>Price Sale Third Party</span></th>
+            <th><span>Price Sale In Real</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let disco of discos ;trackBy: trackId">
+                <td><a [routerLink]="['../disco', disco.id ]">{{disco.id}}</a></td>
+                <td>{{disco.query}}</td>
+                <td>{{disco.type}}</td>
+                <td>{{disco.title}}</td>
+                <td>{{disco.releaseTitle}}</td>
+                <td>{{disco.credit}}</td>
+                <td>{{disco.artist}}</td>
+                <td>{{disco.anv}}</td>
+                <td>{{disco.label}}</td>
+                <td>{{disco.genre}}</td>
+                <td>{{disco.style}}</td>
+                <td>{{disco.country}}</td>
+                <td>{{disco.year}}</td>
+                <td>{{disco.format}}</td>
+                <td>{{disco.catno}}</td>
+                <td>{{disco.barCode}}</td>
+                <td>{{disco.track}}</td>
+                <td>{{disco.submitter}}</td>
+                <td>{{disco.contributor}}</td>
+                <td>{{disco.condition}}</td>
+                <td>{{disco.discoType}}</td>
+                <td>{{disco.datePurchase | date:'medium'}}</td>
+                <td>{{disco.dateSale | date:'medium'}}</td>
+                <td>{{disco.cover}}</td>
+                <td>{{disco.detail}}</td>
+                <td>{{disco.pricePurchase}}</td>
+                <td>{{disco.priceSale}}</td>
+                <td>{{disco.priceSaleStore}}</td>
+                <td>{{disco.priceSaleThirdParty}}</td>
+                <td>{{disco.priceSaleInReal}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../disco', disco.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'disco/'+ disco.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'disco/'+ disco.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
