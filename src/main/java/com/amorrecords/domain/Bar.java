@@ -23,6 +23,9 @@ public class Bar implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "value")
+    private Double value;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -44,6 +47,15 @@ public class Bar implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Double getValue() {
+        return value;
+    }
+
+    public void setValue(Double value) {
+        this.value = value;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

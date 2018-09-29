@@ -54,4 +54,6 @@ activities: Activity[];
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
     }
+
+
 }

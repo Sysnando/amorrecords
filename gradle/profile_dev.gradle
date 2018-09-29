@@ -14,7 +14,7 @@ if (project.hasProperty('no-liquibase')) {
 }
 
 bootRun {
-    args = []
+    args = ["run", "webpack:build"]
 }
 
 task webpackBuildDev(type: YarnTask) {
@@ -22,7 +22,8 @@ task webpackBuildDev(type: YarnTask) {
 }
 
 war {
-    webAppDirName = 'build/www/'
+    //webAppDirName = 'build/www/'
+    webAppDirName = 'src/main/webapp/'
 }
 
 processResources {

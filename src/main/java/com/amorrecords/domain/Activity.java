@@ -60,13 +60,13 @@ public class Activity implements Serializable {
     @Column(name = "operation")
     private Operation operation;
 
-    @OneToOne
+/*    @OneToOne
     @JoinColumn(unique = true)
     private Supplier supplier;
 
     @OneToMany(mappedBy = "activity")
     @JsonIgnore
-    private Set<Product> products = new HashSet<>();
+    private Set<Product> products = new HashSet<>();*/
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -207,7 +207,7 @@ public class Activity implements Serializable {
         this.operation = operation;
     }
 
-    public Supplier getSupplier() {
+/*    public Supplier getSupplier() {
         return supplier;
     }
 
@@ -233,9 +233,9 @@ public class Activity implements Serializable {
         this.products.add(product);
         product.setActivity(this);
         return this;
-    }
+    }*/
 
-    public Activity removeProduct(Product product) {
+/*    public Activity removeProduct(Product product) {
         this.products.remove(product);
         product.setActivity(null);
         return this;
@@ -243,7 +243,7 @@ public class Activity implements Serializable {
 
     public void setProducts(Set<Product> products) {
         this.products = products;
-    }
+    }*/
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

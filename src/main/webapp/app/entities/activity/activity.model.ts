@@ -1,5 +1,7 @@
 import { BaseEntity } from './../../shared';
-import {Supplier} from "../supplier/supplier.model";
+// import {Supplier} from '../supplier/supplier.model';
+// import {Product} from '../product/product.model';
+import {Bar} from '../bar/bar.model';
 
 export const enum TypePayment {
     'NU',
@@ -38,8 +40,9 @@ export class Activity implements BaseEntity {
         public invoiceNumber?: string,
         public paymentType?: TypePayment,
         public operation?: Operation,
-        public supplier?: Supplier,
-        public products?: BaseEntity[],
+        // public supplier?: Supplier,
+        // public products?: Product,
+        public bar?: Bar,
     ) {
     }
 }

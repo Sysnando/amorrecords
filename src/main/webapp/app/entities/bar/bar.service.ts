@@ -32,6 +32,11 @@ export class BarService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    findAll(): Observable<HttpResponse<Bar[]>> {
+        return this.http.get<Bar[]>(this.resourceUrl, {observe: 'response'})
+            .map((res: HttpResponse<Bar[]>)  => this.convertArrayResponse(res));
+    }
+
     query(req?: any): Observable<HttpResponse<Bar[]>> {
         const options = createRequestOption(req);
         return this.http.get<Bar[]>(this.resourceUrl, { params: options, observe: 'response' })

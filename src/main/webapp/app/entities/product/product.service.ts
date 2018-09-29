@@ -32,6 +32,11 @@ export class ProductService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    findAll(): Observable<HttpResponse<Product[]>> {
+        return this.http.get<Product[]>(this.resourceUrl, {observe: 'response'})
+            .map((res: HttpResponse<Product[]>) => this.convertArrayResponse(res));
+    }
+
     query(req?: any): Observable<HttpResponse<Product[]>> {
         const options = createRequestOption(req);
         return this.http.get<Product[]>(this.resourceUrl, { params: options, observe: 'response' })

@@ -12,14 +12,14 @@
         <dd>
             <span>{{activity.dueDate | date:'medium'}}</span>
         </dd>
-        <dt><span>Reference</span></dt>
+<!--        <dt><span>Reference</span></dt>
         <dd>
             <span>{{activity.reference}}</span>
         </dd>
         <dt><span>Description</span></dt>
         <dd>
             <span>{{activity.description}}</span>
-        </dd>
+        </dd>-->
         <dt><span>Quantity</span></dt>
         <dd>
             <span>{{activity.quantity}}</span>
@@ -32,10 +32,10 @@
         <dd>
             <span>{{activity.amountTotal}}</span>
         </dd>
-        <dt><span>Invoice Number</span></dt>
+<!--        <dt><span>Invoice Number</span></dt>
         <dd>
             <span>{{activity.invoiceNumber}}</span>
-        </dd>
+        </dd>-->
         <dt><span>Payment Type</span></dt>
         <dd>
             <span>{{activity.paymentType}}</span>
@@ -44,12 +44,12 @@
         <dd>
             <span>{{activity.operation}}</span>
         </dd>
-        <dt><span>Supplier</span></dt>
+<!--        <dt><span>Supplier</span></dt>
         <dd>
             <div *ngIf="activity.supplier">
                 <a [routerLink]="['/supplier', activity.supplier?.id]">{{activity.supplier?.id}}</a>
             </div>
-        </dd>
+        </dd>-->
     </dl>
 
     <button type="submit"

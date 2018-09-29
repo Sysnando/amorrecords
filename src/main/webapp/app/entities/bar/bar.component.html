@@ -18,13 +18,14 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Description</span></th>
-            <th></th>
+            <th><span>Value</span></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let bar of bars ;trackBy: trackId">
                 <td><a [routerLink]="['../bar', bar.id ]">{{bar.id}}</a></td>
                 <td>{{bar.description}}</td>
+                <td>{{bar.value}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
