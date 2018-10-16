@@ -18,14 +18,14 @@ export class ActivityService {
     constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
 
     create(activity: Activity): Observable<EntityResponseType> {
-        const copy = this.convert(activity);
-        return this.http.post<Activity>(this.resourceUrl, copy, { observe: 'response' })
+        /*const copy = this.convert(activity);*/
+        return this.http.post<Activity>(this.resourceUrl, activity, { observe: 'response' })
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
     update(activity: Activity): Observable<EntityResponseType> {
-        const copy = this.convert(activity);
-        return this.http.put<Activity>(this.resourceUrl, copy, { observe: 'response' })
+        /*const copy = this.convert(activity);*/
+        return this.http.put<Activity>(this.resourceUrl, activity, { observe: 'response' })
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
@@ -63,10 +63,9 @@ export class ActivityService {
      */
     private convertItemFromServer(activity: Activity): Activity {
         const copy: Activity = Object.assign({}, activity);
-        copy.date = this.dateUtils
-            .convertDateTimeFromServer(activity.date);
-        copy.dueDate = this.dateUtils
-            .convertDateTimeFromServer(activity.dueDate);
+        //copy.date = this.dateUtils.convertDateTimeFromServer(activity.date);
+        /*copy.dueDate = this.dateUtils
+            .convertDateTimeFromServer(activity.dueDate);*/
         return copy;
     }
 
@@ -78,7 +77,7 @@ export class ActivityService {
 
         copy.date = this.dateUtils.toDate(activity.date);
 
-        copy.dueDate = this.dateUtils.toDate(activity.dueDate);
+        /*copy.dueDate = this.dateUtils.toDate(activity.dueDate);*/
         return copy;
     }
 }

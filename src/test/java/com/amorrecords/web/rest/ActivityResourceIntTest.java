@@ -43,7 +43,7 @@ import com.amorrecords.domain.enumeration.Operation;
 public class ActivityResourceIntTest {
 
     private static final Instant DEFAULT_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    /*private static final Instant UPDATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);*/
 
     private static final Instant DEFAULT_DUE_DATE = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DUE_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
@@ -110,8 +110,8 @@ public class ActivityResourceIntTest {
      */
     public static Activity createEntity(EntityManager em) {
         Activity activity = new Activity()
-            .date(DEFAULT_DATE)
-            .dueDate(DEFAULT_DUE_DATE)
+            /*.date(DEFAULT_DATE)*/
+            /*.dueDate(DEFAULT_DUE_DATE)*/
             .reference(DEFAULT_REFERENCE)
             .description(DEFAULT_DESCRIPTION)
             .quantity(DEFAULT_QUANTITY)
@@ -144,7 +144,7 @@ public class ActivityResourceIntTest {
         assertThat(activityList).hasSize(databaseSizeBeforeCreate + 1);
         Activity testActivity = activityList.get(activityList.size() - 1);
         assertThat(testActivity.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testActivity.getDueDate()).isEqualTo(DEFAULT_DUE_DATE);
+        /*assertThat(testActivity.getDueDate()).isEqualTo(DEFAULT_DUE_DATE);*/
         assertThat(testActivity.getReference()).isEqualTo(DEFAULT_REFERENCE);
         assertThat(testActivity.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testActivity.getQuantity()).isEqualTo(DEFAULT_QUANTITY);
@@ -240,8 +240,8 @@ public class ActivityResourceIntTest {
         // Disconnect from session so that the updates on updatedActivity are not directly saved in db
         em.detach(updatedActivity);
         updatedActivity
-            .date(UPDATED_DATE)
-            .dueDate(UPDATED_DUE_DATE)
+            /*.date(UPDATED_DATE)*/
+            /*.dueDate(UPDATED_DUE_DATE)*/
             .reference(UPDATED_REFERENCE)
             .description(UPDATED_DESCRIPTION)
             .quantity(UPDATED_QUANTITY)
@@ -260,8 +260,8 @@ public class ActivityResourceIntTest {
         List<Activity> activityList = activityRepository.findAll();
         assertThat(activityList).hasSize(databaseSizeBeforeUpdate);
         Activity testActivity = activityList.get(activityList.size() - 1);
-        assertThat(testActivity.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testActivity.getDueDate()).isEqualTo(UPDATED_DUE_DATE);
+        /*assertThat(testActivity.getDate()).isEqualTo(UPDATED_DATE);*/
+        /*assertThat(testActivity.getDueDate()).isEqualTo(UPDATED_DUE_DATE);*/
         assertThat(testActivity.getReference()).isEqualTo(UPDATED_REFERENCE);
         assertThat(testActivity.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testActivity.getQuantity()).isEqualTo(UPDATED_QUANTITY);

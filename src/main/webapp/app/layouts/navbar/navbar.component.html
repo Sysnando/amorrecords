@@ -18,7 +18,14 @@
                     </span>
                 </a>
             </li>
-
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="table-bar" (click)="collapseNavbar()">
+                    <span>
+                        <i class="fa" aria-hidden="true"></i>
+                        <span>Table Bar</span>
+                    </span>
+                </a>
+            </li>
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="activity" (click)="collapseNavbar()">
                     <span>
@@ -68,6 +75,12 @@
                             <span>Disco</span>
                         </a>
                     </li>
+                    <!--<li>
+                        <a class="dropdown-item" routerLink="table-bar" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span>Table Bar</span>
+                        </a>
+                    </li>-->
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

@@ -3,19 +3,19 @@
         <div class="modal-header">
             <div class="row">
                 <div class="col-12">
+                    <h4 class="modal-title" id="myActivityLabel">Create or edit a Activity</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                            (click)="clear()">&times;
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <jhi-alert-error></jhi-alert-error>
                     <div class="form-group" [hidden]="!activity.id">
                         <label for="id">ID</label>
                         <input type="text" class="form-control" id="id" name="id"
                                [(ngModel)]="activity.id" readonly/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <h4 class="modal-title" id="myActivityLabel">Create or edit a Activity</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                                (click)="clear()">&times;
-                        </button>
                     </div>
                 </div>
             </div>
@@ -26,8 +26,7 @@
                         <div class="form-group">
                             <label class="form-control-label" for="field_date">Date</label>
                             <div class="d-flex">
-                                <input id="field_date" type="datetime-local" class="form-control" name="date"
-                                       [(ngModel)]="activity.date"/>
+                                <input id="field_date" type="date" class="form-control" name="date" [(ngModel)]="activity.date"/>
                             </div>
                         </div>
                     </div>
@@ -102,7 +101,7 @@
                         <div class="form-group">
                             <label class="form-control-label" for="field_amountUnit">Amount Unit</label>
                             <input type="number" class="form-control" name="amountUnit" id="field_amountUnit"
-                                   [(ngModel)]="activity.amountUnit" value="{{activity.bar}"/>
+                                   [(ngModel)]="activity.amountUnit"/>
                         </div>
                     </div>
                     <div class="col-3">
@@ -136,14 +135,15 @@
                 </div>
             </div>
         <div class="modal-footer">
-        <div class="row">
-            <div class="col-12">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-                    <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
-                </button>
-                <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <span class="fa fa-save"></span>&nbsp;<span>Save</span>
-                </button>
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+                        <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+                    </button>
+                    <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                        <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+                    </button>
+                </div>
             </div>
         </div>
     </form>

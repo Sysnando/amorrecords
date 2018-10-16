@@ -31,7 +31,7 @@ export class Activity implements BaseEntity {
     constructor(
         public id?: number,
         public date?: any,
-        public dueDate?: any,
+        //public dueDate?: any,
         public reference?: string,
         public description?: string,
         public quantity?: number,

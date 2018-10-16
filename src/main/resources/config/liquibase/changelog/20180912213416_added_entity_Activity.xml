@@ -21,13 +21,13 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="jhi_date" type="timestamp">
+            <column name="date" type="date">
                 <constraints nullable="true" />
             </column>
 
-            <column name="due_date" type="timestamp">
+ <!--           <column name="due_date" type="timestamp">
                 <constraints nullable="true" />
-            </column>
+            </column>-->
 
             <column name="reference" type="varchar(255)">
                 <constraints nullable="true" />
@@ -60,14 +60,14 @@
             <column name="operation" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="supplier_id" type="bigint">
+  <!--          <column name="supplier_id" type="bigint">
                 <constraints unique="true" nullable="true" />
-            </column>
+            </column>-->
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        <dropDefaultValue tableName="activity" columnName="jhi_date" columnDataType="datetime"/>
-        <dropDefaultValue tableName="activity" columnName="due_date" columnDataType="datetime"/>
-        
+        <dropDefaultValue tableName="activity" columnName="date" columnDataType="date"/>
+        <!--<dropDefaultValue tableName="activity" columnName="due_date" columnDataType="datetime"/>-->
+
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

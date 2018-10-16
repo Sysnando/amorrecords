@@ -10,6 +10,7 @@
     <include file="config/liquibase/changelog/20180912213417_added_entity_Supplier.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912213418_added_entity_Bar.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912213419_added_entity_Disco.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016211608_added_entity_Table_bar.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180912213415_added_entity_constraints_Product.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912213416_added_entity_constraints_Activity.xml" relativeToChangelogFile="false"/>

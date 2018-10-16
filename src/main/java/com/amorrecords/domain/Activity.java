@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -28,11 +29,11 @@ public class Activity implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "jhi_date")
-    private Instant date;
+    @Column(name = "date")
+    private LocalDate date;
 
-    @Column(name = "due_date")
-    private Instant dueDate;
+    /*@Column(name = "due_date")
+    private Instant dueDate;*/
 
     @Column(name = "reference")
     private String reference;
@@ -77,20 +78,20 @@ public class Activity implements Serializable {
         this.id = id;
     }
 
-    public Instant getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public Activity date(Instant date) {
+    public Activity date(LocalDate date) {
         this.date = date;
         return this;
     }
 
-    public void setDate(Instant date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public Instant getDueDate() {
+/*    public Instant getDueDate() {
         return dueDate;
     }
 
@@ -101,7 +102,7 @@ public class Activity implements Serializable {
 
     public void setDueDate(Instant dueDate) {
         this.dueDate = dueDate;
-    }
+    }*/
 
     public String getReference() {
         return reference;
@@ -271,7 +272,7 @@ public class Activity implements Serializable {
         return "Activity{" +
             "id=" + getId() +
             ", date='" + getDate() + "'" +
-            ", dueDate='" + getDueDate() + "'" +
+            /*", dueDate='" + getDueDate() + "'" +*/
             ", reference='" + getReference() + "'" +
             ", description='" + getDescription() + "'" +
             ", quantity=" + getQuantity() +

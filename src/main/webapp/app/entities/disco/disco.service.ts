@@ -44,6 +44,10 @@ export class DiscoService {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }
 
+    testeApis(): Observable<HttpResponse<any>> {
+        return this.http.get<any>(`${this.resourceUrl}/teste`, { observe: 'response'});
+    }
+
     private convertResponse(res: EntityResponseType): EntityResponseType {
         const body: Disco = this.convertItemFromServer(res.body);
         return res.clone({body});

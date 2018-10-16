@@ -3,21 +3,21 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
-import { Disco } from './disco.model';
-import { DiscoService } from './disco.service';
+import { Table_bar } from './table-bar.model';
+import { Table_barService } from './table-bar.service';
 import { Principal } from '../../shared';
 
 @Component({
-    selector: 'jhi-disco',
-    templateUrl: './disco.component.html'
+    selector: 'jhi-table-bar',
+    templateUrl: './table-bar.component.html'
 })
-export class DiscoComponent implements OnInit, OnDestroy {
-discos: Disco[];
+export class Table_barComponent implements OnInit, OnDestroy {
+table_bars: Table_bar[];
     currentAccount: any;
     eventSubscriber: Subscription;
 
     constructor(
-        private discoService: DiscoService,
+        private table_barService: Table_barService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private principal: Principal
@@ -25,35 +25,30 @@ discos: Disco[];
     }
 
     loadAll() {
-        this.discoService.query().subscribe(
-            (res: HttpResponse<Disco[]>) => {
-                this.discos = res.body;
+        this.table_barService.query().subscribe(
+            (res: HttpResponse<Table_bar[]>) => {
+                this.table_bars = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
     }
-
-    testeApis(){
-        this.discoService.testeApis();
-    }
-
     ngOnInit() {
         this.loadAll();
         this.principal.identity().then((account) => {
             this.currentAccount = account;
         });
-        this.registerChangeInDiscos();
+        this.registerChangeInTable_bars();
     }
 
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    trackId(index: number, item: Disco) {
+    trackId(index: number, item: Table_bar) {
         return item.id;
     }
-    registerChangeInDiscos() {
-        this.eventSubscriber = this.eventManager.subscribe('discoListModification', (response) => this.loadAll());
+    registerChangeInTable_bars() {
+        this.eventSubscriber = this.eventManager.subscribe('table_barListModification', (response) => this.loadAll());
     }
 
     private onError(error) {

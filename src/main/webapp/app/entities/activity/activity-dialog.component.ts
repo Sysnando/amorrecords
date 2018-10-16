@@ -14,6 +14,7 @@ import { ActivityService } from './activity.service';
 // import {ProductService} from '../product/product.service';
 import {Bar} from '../bar/bar.model';
 import {BarService} from '../bar/bar.service';
+import * as moment from 'moment';
 
 @Component({
     selector: 'jhi-activity-dialog',
@@ -41,6 +42,7 @@ export class ActivityDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+        this.activity.date = moment().format("YYYY-MM-DD");
         /*this.productService
             .findAll()
             .subscribe((res: HttpResponse<Product[]>) => {
@@ -74,6 +76,7 @@ export class ActivityDialogComponent implements OnInit {
     }
 
     save() {
+        console.log(this.activity)
         this.isSaving = true;
         if (this.activity.id !== undefined) {
             this.subscribeToSaveResponse(

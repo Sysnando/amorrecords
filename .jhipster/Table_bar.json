@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "activity",
+            "otherEntityName": "activity",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "table_bar"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20181016211608",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "table_bar",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
