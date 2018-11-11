@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="sisnandocosta (generated)" id="1541950525292-1">
+        <addColumn tableName="table_bar">
+            <column name="customer_name" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="sisnandocosta (generated)" id="1541950525292-2">
+        <addColumn tableName="table_bar">
+            <column name="date" type="date"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="sisnandocosta (generated)" id="1541950525292-3">
+        <addColumn tableName="activity">
+            <column name="table_bar_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="sisnandocosta (generated)" id="1541950525292-4">
+        <addForeignKeyConstraint baseColumnNames="table_bar_id" baseTableName="activity" constraintName="FK44q9isjmcqsmam17i7jt3rir6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="table_bar"/>
+    </changeSet>
+    <changeSet author="sisnandocosta (generated)" id="1541950525292-5">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="description" tableName="bar"/>
+    </changeSet>
+    <changeSet author="sisnandocosta (generated)" id="1541950525292-6">
+        <dropNotNullConstraint columnDataType="double" columnName="value" tableName="bar"/>
+    </changeSet>
+</databaseChangeLog>
