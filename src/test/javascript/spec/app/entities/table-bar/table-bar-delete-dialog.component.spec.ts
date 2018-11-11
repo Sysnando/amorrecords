@@ -5,34 +5,34 @@ import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { AmorrecordsTestModule } from '../../../test.module';
-import { Table_barDeleteDialogComponent } from '../../../../../../main/webapp/app/entities/table-bar/table-bar-delete-dialog.component';
-import { Table_barService } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.service';
+import { TableBarDeleteDialogComponent } from '../../../../../../main/webapp/app/entities/table-bar/table-bar-delete-dialog.component';
+import { TableBarService } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.service';
 
 describe('Component Tests', () => {
 
-    describe('Table_bar Management Delete Component', () => {
-        let comp: Table_barDeleteDialogComponent;
-        let fixture: ComponentFixture<Table_barDeleteDialogComponent>;
-        let service: Table_barService;
+    describe('TableBar Management Delete Component', () => {
+        let comp: TableBarDeleteDialogComponent;
+        let fixture: ComponentFixture<TableBarDeleteDialogComponent>;
+        let service: TableBarService;
         let mockEventManager: any;
         let mockActiveModal: any;
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [AmorrecordsTestModule],
-                declarations: [Table_barDeleteDialogComponent],
+                declarations: [TableBarDeleteDialogComponent],
                 providers: [
-                    Table_barService
+                    TableBarService
                 ]
             })
-            .overrideTemplate(Table_barDeleteDialogComponent, '')
+            .overrideTemplate(TableBarDeleteDialogComponent, '')
             .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(Table_barDeleteDialogComponent);
+            fixture = TestBed.createComponent(TableBarDeleteDialogComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Table_barService);
+            service = fixture.debugElement.injector.get(TableBarService);
             mockEventManager = fixture.debugElement.injector.get(JhiEventManager);
             mockActiveModal = fixture.debugElement.injector.get(NgbActiveModal);
         });

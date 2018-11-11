@@ -5,7 +5,7 @@ import { AmorrecordsActivityModule } from './activity/activity.module';
 import { AmorrecordsSupplierModule } from './supplier/supplier.module';
 import { AmorrecordsBarModule } from './bar/bar.module';
 import { AmorrecordsDiscoModule } from './disco/disco.module';
-import { AmorrecordsTable_barModule } from './table-bar/table-bar.module';
+import { AmorrecordsTableBarModule } from './table-bar/table-bar.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -15,7 +15,7 @@ import { AmorrecordsTable_barModule } from './table-bar/table-bar.module';
         AmorrecordsSupplierModule,
         AmorrecordsBarModule,
         AmorrecordsDiscoModule,
-        AmorrecordsTable_barModule,
+        AmorrecordsTableBarModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

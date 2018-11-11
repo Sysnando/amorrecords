@@ -1,5 +1,6 @@
 package com.amorrecords.web.rest;
 
+import com.amorrecords.integration.discogs.client.DiscogsClient;
 import com.codahale.metrics.annotation.Timed;
 import com.amorrecords.domain.Disco;
 
@@ -112,8 +113,15 @@ public class DiscoResource {
     @DeleteMapping("/discos/{id}")
     @Timed
     public ResponseEntity<Void> deleteDisco(@PathVariable Long id) {
-        log.debug("REST request to delete Disco : {}", id);
-        discoRepository.delete(id);
+        DiscogsClient discogsClient = new DiscogsClient();
+        System.out.println(discogsClient.identity());
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/discos/teste")
+    public ResponseEntity<Void> testeDiscogsApi(){
+        DiscogsClient discogsClient = new DiscogsClient();
+        System.out.println(discogsClient.identity());
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, "adsf")).build();
     }
 }

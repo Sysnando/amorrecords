@@ -1,58 +1,58 @@
 import { Routes } from '@angular/router';
 
 import { UserRouteAccessService } from '../../shared';
-import { Table_barComponent } from './table-bar.component';
-import { Table_barDetailComponent } from './table-bar-detail.component';
-import { Table_barPopupComponent } from './table-bar-dialog.component';
-import { Table_barDeletePopupComponent } from './table-bar-delete-dialog.component';
+import { TableBarComponent } from './table-bar.component';
+import { TableBarDetailComponent } from './table-bar-detail.component';
+import { TableBarPopupComponent } from './table-bar-dialog.component';
+import { TableBarDeletePopupComponent } from './table-bar-delete-dialog.component';
 
-export const table_barRoute: Routes = [
+export const TableBarRoute: Routes = [
     {
         path: 'table-bar',
-        component: Table_barComponent,
+        component: TableBarComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Table_bars'
+            pageTitle: 'TableBars'
         },
         canActivate: [UserRouteAccessService]
     }, {
         path: 'table-bar/:id',
-        component: Table_barDetailComponent,
+        component: TableBarDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Table_bars'
+            pageTitle: 'TableBars'
         },
         canActivate: [UserRouteAccessService]
     }
 ];
 
-export const table_barPopupRoute: Routes = [
+export const TableBarPopupRoute: Routes = [
     {
         path: 'table-bar-new',
-        component: Table_barPopupComponent,
+        component: TableBarPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Table_bars'
+            pageTitle: 'TableBars'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
     },
     {
         path: 'table-bar/:id/edit',
-        component: Table_barPopupComponent,
+        component: TableBarPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Table_bars'
+            pageTitle: 'TableBars'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
     },
     {
         path: 'table-bar/:id/delete',
-        component: Table_barDeletePopupComponent,
+        component: TableBarDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Table_bars'
+            pageTitle: 'TableBars'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

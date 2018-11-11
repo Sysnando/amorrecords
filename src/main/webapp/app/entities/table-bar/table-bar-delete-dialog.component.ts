@@ -4,20 +4,20 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Table_bar } from './table-bar.model';
-import { Table_barPopupService } from './table-bar-popup.service';
-import { Table_barService } from './table-bar.service';
+import { TableBar } from './table-bar.model';
+import { TableBarPopupService } from './table-bar-popup.service';
+import { TableBarService } from './table-bar.service';
 
 @Component({
     selector: 'jhi-table-bar-delete-dialog',
     templateUrl: './table-bar-delete-dialog.component.html'
 })
-export class Table_barDeleteDialogComponent {
+export class TableBarDeleteDialogComponent {
 
-    table_bar: Table_bar;
+    table_bar: TableBar;
 
     constructor(
-        private table_barService: Table_barService,
+        private table_barService: TableBarService,
         public activeModal: NgbActiveModal,
         private eventManager: JhiEventManager
     ) {
@@ -42,19 +42,19 @@ export class Table_barDeleteDialogComponent {
     selector: 'jhi-table-bar-delete-popup',
     template: ''
 })
-export class Table_barDeletePopupComponent implements OnInit, OnDestroy {
+export class TableBarDeletePopupComponent implements OnInit, OnDestroy {
 
     routeSub: any;
 
     constructor(
         private route: ActivatedRoute,
-        private table_barPopupService: Table_barPopupService
+        private table_barPopupService: TableBarPopupService
     ) {}
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
             this.table_barPopupService
-                .open(Table_barDeleteDialogComponent as Component, params['id']);
+                .open(TableBarDeleteDialogComponent as Component, params['id']);
         });
     }
 

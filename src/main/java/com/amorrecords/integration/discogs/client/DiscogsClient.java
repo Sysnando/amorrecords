@@ -81,6 +81,14 @@ public class DiscogsClient {
         oauthTokenSecret = oauth_token_secret;
     }
 
+    public DiscogsClient () {
+        this.getRequestToken();
+        //this.getAuthorizationURL();
+        this.identity();
+        //this.updateAccessToken();
+
+    }
+
     public DiscogsClient (String user_agent) {
         userAgent = user_agent;
     }
@@ -139,9 +147,6 @@ public class DiscogsClient {
         params.put("username", username);
         HttpRequest request = HttpRequest.get(replaceURLParams(URL_USER_PROFILE, params)).header(HEADER_AUTHORIZATION, authenticatedHeader()).userAgent(userAgent);
         System.out.println(request.toString());
-
-
-
         return request.body();
     }
 
@@ -664,7 +669,8 @@ public class DiscogsClient {
 
         System.out.println(request.toString());
         System.out.println(request.code());
-        Map<String, String> r = parseParams(request.body());
+        String body = request.body();
+        Map<String, String> r = parseParams(body);
         String token = r.get("oauth_token");
         String token_secret = r.get("oauth_token_secret");
         System.out.println(token);
@@ -679,8 +685,8 @@ public class DiscogsClient {
         return HttpRequest.append(URL_AUTHORIZE, "oauth_token", requestToken);
     }
 
-    public void getAccessToken(String verifier) {
-        accessVerifier = verifier;
+    public void updateAccessToken() {
+        //accessVerifier = verifier;
         HttpRequest request = HttpRequest.post(URL_ACCESS_TOKEN).userAgent(userAgent).authorization(accessAuthorizationHeader()).send("");
         System.out.println(request.toString());
         System.out.println(request.code());

@@ -1,20 +1,23 @@
+
 package com.amorrecords.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import java.time.LocalDate;
+import java.util.*;
+
 
 /**
  * A Table_bar.
  */
+
 @Entity
 @Table(name = "table_bar")
-public class Table_bar implements Serializable {
+public class TableBar implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -23,9 +26,16 @@ public class Table_bar implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @OneToMany(mappedBy = "table_bar")
-    @JsonIgnore
-    private Set<Activity> activities = new HashSet<>();
+    @Column(name = "customer_name")
+    private String customerName;
+
+    @Column
+    private LocalDate date;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="table_bar_id")
+    //@JsonIgnore
+    private List<Activity> activities = new ArrayList<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -36,28 +46,44 @@ public class Table_bar implements Serializable {
         this.id = id;
     }
 
-    public Set<Activity> getActivities() {
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public List<Activity> getActivities() {
         return activities;
     }
 
-    public Table_bar activities(Set<Activity> activities) {
+    public TableBar activities(List<Activity> activities) {
         this.activities = activities;
         return this;
     }
 
-    public Table_bar addActivity(Activity activity) {
+    public TableBar addActivity(Activity activity) {
         this.activities.add(activity);
-        activity.setTable_bar(this);
+        //activity.setTable_bar(this);
         return this;
     }
 
-    public Table_bar removeActivity(Activity activity) {
+    public TableBar removeActivity(Activity activity) {
         this.activities.remove(activity);
-        activity.setTable_bar(null);
+        //activity.setTable_bar(null);
         return this;
     }
 
-    public void setActivities(Set<Activity> activities) {
+    public void setActivities(List<Activity> activities) {
         this.activities = activities;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
@@ -70,7 +96,7 @@ public class Table_bar implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Table_bar table_bar = (Table_bar) o;
+        TableBar table_bar = (TableBar) o;
         if (table_bar.getId() == null || getId() == null) {
             return false;
         }
@@ -84,8 +110,9 @@ public class Table_bar implements Serializable {
 
     @Override
     public String toString() {
-        return "Table_bar{" +
+        return "TableBar{" +
             "id=" + getId() +
             "}";
     }
 }
+

@@ -3,21 +3,21 @@ import { RouterModule } from '@angular/router';
 
 import { AmorrecordsSharedModule } from '../../shared';
 import {
-    Table_barService,
-    Table_barPopupService,
-    Table_barComponent,
-    Table_barDetailComponent,
-    Table_barDialogComponent,
-    Table_barPopupComponent,
-    Table_barDeletePopupComponent,
-    Table_barDeleteDialogComponent,
-    table_barRoute,
-    table_barPopupRoute,
+    TableBarService,
+    TableBarPopupService,
+    TableBarComponent,
+    TableBarDetailComponent,
+    TableBarDialogComponent,
+    TableBarPopupComponent,
+    TableBarDeletePopupComponent,
+    TableBarDeleteDialogComponent,
+    TableBarRoute,
+    TableBarPopupRoute,
 } from './';
 
 const ENTITY_STATES = [
-    ...table_barRoute,
-    ...table_barPopupRoute,
+    ...TableBarRoute,
+    ...TableBarPopupRoute,
 ];
 
 @NgModule({
@@ -26,24 +26,24 @@ const ENTITY_STATES = [
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [
-        Table_barComponent,
-        Table_barDetailComponent,
-        Table_barDialogComponent,
-        Table_barDeleteDialogComponent,
-        Table_barPopupComponent,
-        Table_barDeletePopupComponent,
+        TableBarComponent,
+        TableBarDetailComponent,
+        TableBarDialogComponent,
+        TableBarDeleteDialogComponent,
+        TableBarPopupComponent,
+        TableBarDeletePopupComponent,
     ],
     entryComponents: [
-        Table_barComponent,
-        Table_barDialogComponent,
-        Table_barPopupComponent,
-        Table_barDeleteDialogComponent,
-        Table_barDeletePopupComponent,
+        TableBarComponent,
+        TableBarDialogComponent,
+        TableBarPopupComponent,
+        TableBarDeleteDialogComponent,
+        TableBarDeletePopupComponent,
     ],
     providers: [
-        Table_barService,
-        Table_barPopupService,
+        TableBarService,
+        TableBarPopupService,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AmorrecordsTable_barModule {}
+export class AmorrecordsTableBarModule {}

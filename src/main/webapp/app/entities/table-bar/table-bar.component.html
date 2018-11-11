@@ -16,13 +16,17 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span>ID</span></th>
-            <th></th>
+                <th><span>ID</span></th>
+                <th><span>CUSTOMER NAME</span></th>
+                <th><span>DATE</span></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let table_bar of table_bars ;trackBy: trackId">
                 <td><a [routerLink]="['../table-bar', table_bar.id ]">{{table_bar.id}}</a></td>
+                <td>{{table_bar.customerName}}</td>
+                <td>{{table_bar.date}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -3,21 +3,21 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
-import { Table_bar } from './table-bar.model';
-import { Table_barService } from './table-bar.service';
+import { TableBar } from './table-bar.model';
+import { TableBarService } from './table-bar.service';
 import { Principal } from '../../shared';
 
 @Component({
     selector: 'jhi-table-bar',
     templateUrl: './table-bar.component.html'
 })
-export class Table_barComponent implements OnInit, OnDestroy {
-table_bars: Table_bar[];
+export class TableBarComponent implements OnInit, OnDestroy {
+table_bars: TableBar[];
     currentAccount: any;
     eventSubscriber: Subscription;
 
     constructor(
-        private table_barService: Table_barService,
+        private tableBarService: TableBarService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private principal: Principal
@@ -25,8 +25,8 @@ table_bars: Table_bar[];
     }
 
     loadAll() {
-        this.table_barService.query().subscribe(
-            (res: HttpResponse<Table_bar[]>) => {
+        this.tableBarService.query().subscribe(
+            (res: HttpResponse<TableBar[]>) => {
                 this.table_bars = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -37,18 +37,18 @@ table_bars: Table_bar[];
         this.principal.identity().then((account) => {
             this.currentAccount = account;
         });
-        this.registerChangeInTable_bars();
+        this.registerChangeInTableBars();
     }
 
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    trackId(index: number, item: Table_bar) {
+    trackId(index: number, item: TableBar) {
         return item.id;
     }
-    registerChangeInTable_bars() {
-        this.eventSubscriber = this.eventManager.subscribe('table_barListModification', (response) => this.loadAll());
+    registerChangeInTableBars() {
+        this.eventSubscriber = this.eventManager.subscribe('tableBarListModification', (response) => this.loadAll());
     }
 
     private onError(error) {

@@ -6,35 +6,35 @@ import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { AmorrecordsTestModule } from '../../../test.module';
-import { Table_barDialogComponent } from '../../../../../../main/webapp/app/entities/table-bar/table-bar-dialog.component';
-import { Table_barService } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.service';
-import { Table_bar } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.model';
+import { TableBarDialogComponent } from '../../../../../../main/webapp/app/entities/table-bar/table-bar-dialog.component';
+import { TableBarService } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.service';
+import { TableBar } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.model';
 
 describe('Component Tests', () => {
 
-    describe('Table_bar Management Dialog Component', () => {
-        let comp: Table_barDialogComponent;
-        let fixture: ComponentFixture<Table_barDialogComponent>;
-        let service: Table_barService;
+    describe('TableBar Management Dialog Component', () => {
+        let comp: TableBarDialogComponent;
+        let fixture: ComponentFixture<TableBarDialogComponent>;
+        let service: TableBarService;
         let mockEventManager: any;
         let mockActiveModal: any;
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [AmorrecordsTestModule],
-                declarations: [Table_barDialogComponent],
+                declarations: [TableBarDialogComponent],
                 providers: [
-                    Table_barService
+                    TableBarService
                 ]
             })
-            .overrideTemplate(Table_barDialogComponent, '')
+            .overrideTemplate(TableBarDialogComponent, '')
             .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(Table_barDialogComponent);
+            fixture = TestBed.createComponent(TableBarDialogComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Table_barService);
+            service = fixture.debugElement.injector.get(TableBarService);
             mockEventManager = fixture.debugElement.injector.get(JhiEventManager);
             mockActiveModal = fixture.debugElement.injector.get(NgbActiveModal);
         });
@@ -44,7 +44,7 @@ describe('Component Tests', () => {
                 inject([],
                     fakeAsync(() => {
                         // GIVEN
-                        const entity = new Table_bar(123);
+                        const entity = new TableBar(123);
                         spyOn(service, 'update').and.returnValue(Observable.of(new HttpResponse({body: entity})));
                         comp.table_bar = entity;
                         // WHEN
@@ -64,7 +64,7 @@ describe('Component Tests', () => {
                 inject([],
                     fakeAsync(() => {
                         // GIVEN
-                        const entity = new Table_bar();
+                        const entity = new TableBar();
                         spyOn(service, 'create').and.returnValue(Observable.of(new HttpResponse({body: entity})));
                         comp.table_bar = entity;
                         // WHEN

@@ -1,36 +1,36 @@
-/* tslint:disable max-line-length */
+/!* tslint:disable max-line-length *!/
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { AmorrecordsTestModule } from '../../../test.module';
-import { Table_barDetailComponent } from '../../../../../../main/webapp/app/entities/table-bar/table-bar-detail.component';
-import { Table_barService } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.service';
-import { Table_bar } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.model';
+import { TableBarDetailComponent } from '../../../../../../main/webapp/app/entities/table-bar/table-bar-detail.component';
+import { TableBarService } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.service';
+import { TableBar } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.model';
 
 describe('Component Tests', () => {
 
-    describe('Table_bar Management Detail Component', () => {
-        let comp: Table_barDetailComponent;
-        let fixture: ComponentFixture<Table_barDetailComponent>;
-        let service: Table_barService;
+    describe('TableBar Management Detail Component', () => {
+        let comp: TableBarDetailComponent;
+        let fixture: ComponentFixture<TableBarDetailComponent>;
+        let service: TableBarService;
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [AmorrecordsTestModule],
-                declarations: [Table_barDetailComponent],
+                declarations: [TableBarDetailComponent],
                 providers: [
-                    Table_barService
+                    TableBarService
                 ]
             })
-            .overrideTemplate(Table_barDetailComponent, '')
-            .compileComponents();
+                .overrideTemplate(TableBarDetailComponent, '')
+                .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(Table_barDetailComponent);
+            fixture = TestBed.createComponent(TableBarDetailComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Table_barService);
+            service = fixture.debugElement.injector.get(TableBarService);
         });
 
         describe('OnInit', () => {
@@ -38,7 +38,7 @@ describe('Component Tests', () => {
                 // GIVEN
 
                 spyOn(service, 'find').and.returnValue(Observable.of(new HttpResponse({
-                    body: new Table_bar(123)
+                    body: new TableBar(123)
                 })));
 
                 // WHEN
@@ -46,9 +46,9 @@ describe('Component Tests', () => {
 
                 // THEN
                 expect(service.find).toHaveBeenCalledWith(123);
-                expect(comp.table_bar).toEqual(jasmine.objectContaining({id: 123}));
             });
         });
     });
 
 });
+

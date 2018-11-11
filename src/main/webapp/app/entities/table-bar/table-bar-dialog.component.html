@@ -7,12 +7,26 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" [hidden]="!table_bar.id">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                   [(ngModel)]="table_bar.id" readonly />
+        <div class="row">
+           <!-- <div class="col-1">
+                <div class="form-group" [hidden]="!table_bar.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="table_bar.id" readonly />
+                </div>
+            </div>-->
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="customerName">Customer Name</label>
+                    <input type="text" class="form-control" id="customerName" name="customerName" [(ngModel)]="table_bar.customerName">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" [(ngModel)]="table_bar.date">
+                </div>
+            </div>
         </div>
-
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

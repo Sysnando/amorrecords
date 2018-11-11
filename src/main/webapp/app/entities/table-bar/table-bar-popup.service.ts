@@ -2,17 +2,17 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { Table_bar } from './table-bar.model';
-import { Table_barService } from './table-bar.service';
+import { TableBar } from './table-bar.model';
+import { TableBarService } from './table-bar.service';
 
 @Injectable()
-export class Table_barPopupService {
+export class TableBarPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
         private modalService: NgbModal,
         private router: Router,
-        private table_barService: Table_barService
+        private tableBarService: TableBarService
 
     ) {
         this.ngbModalRef = null;
@@ -26,23 +26,23 @@ export class Table_barPopupService {
             }
 
             if (id) {
-                this.table_barService.find(id)
-                    .subscribe((table_barResponse: HttpResponse<Table_bar>) => {
-                        const table_bar: Table_bar = table_barResponse.body;
+                this.tableBarService.find(id)
+                    .subscribe((table_barResponse: HttpResponse<TableBar>) => {
+                        const table_bar: TableBar = table_barResponse.body;
                         this.ngbModalRef = this.table_barModalRef(component, table_bar);
                         resolve(this.ngbModalRef);
                     });
             } else {
                 // setTimeout used as a workaround for getting ExpressionChangedAfterItHasBeenCheckedError
                 setTimeout(() => {
-                    this.ngbModalRef = this.table_barModalRef(component, new Table_bar());
+                    this.ngbModalRef = this.table_barModalRef(component, new TableBar());
                     resolve(this.ngbModalRef);
                 }, 0);
             }
         });
     }
 
-    table_barModalRef(component: Component, table_bar: Table_bar): NgbModalRef {
+    table_barModalRef(component: Component, table_bar: TableBar): NgbModalRef {
         const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
         modalRef.componentInstance.table_bar = table_bar;
         modalRef.result.then((result) => {

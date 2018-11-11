@@ -7,12 +7,12 @@
         Added the constraints for entity Activity.
     -->
     <changeSet id="20180912213416-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="supplier_id"
+
+        <!--<addForeignKeyConstraint baseColumnNames="supplier_id"
                                  baseTableName="activity"
                                  constraintName="fk_activity_supplier_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="supplier"/>
+                                 referencedTableName="supplier"/>-->
 
     </changeSet>
 </databaseChangeLog>

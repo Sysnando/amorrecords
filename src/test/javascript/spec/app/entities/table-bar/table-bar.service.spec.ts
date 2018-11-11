@@ -3,14 +3,14 @@ import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { JhiDateUtils } from 'ng-jhipster';
 
-import { Table_barService } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.service';
+import { TableBarService } from '../../../../../../main/webapp/app/entities/table-bar/table-bar.service';
 import { SERVER_API_URL } from '../../../../../../main/webapp/app/app.constants';
 
 describe('Service Tests', () => {
 
-    describe('Table_bar Service', () => {
+    describe('TableBar Service', () => {
         let injector: TestBed;
-        let service: Table_barService;
+        let service: TableBarService;
         let httpMock: HttpTestingController;
 
         beforeEach(() => {
@@ -20,11 +20,11 @@ describe('Service Tests', () => {
                 ],
                 providers: [
                     JhiDateUtils,
-                    Table_barService
+                    TableBarService
                 ]
             });
             injector = getTestBed();
-            service = injector.get(Table_barService);
+            service = injector.get(TableBarService);
             httpMock = injector.get(HttpTestingController);
         });
 
@@ -37,7 +37,7 @@ describe('Service Tests', () => {
                 const resourceUrl = SERVER_API_URL + 'api/table-bars';
                 expect(req.request.url).toEqual(resourceUrl + '/' + 123);
             });
-            it('should return Table_bar', () => {
+            it('should return TableBar', () => {
 
                 service.find(123).subscribe((received) => {
                     expect(received.body.id).toEqual(123);

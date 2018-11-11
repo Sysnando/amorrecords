@@ -6,22 +6,22 @@ import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Table_bar } from './table-bar.model';
-import { Table_barPopupService } from './table-bar-popup.service';
-import { Table_barService } from './table-bar.service';
+import { TableBar } from './table-bar.model';
+import { TableBarPopupService } from './table-bar-popup.service';
+import { TableBarService } from './table-bar.service';
 
 @Component({
     selector: 'jhi-table-bar-dialog',
     templateUrl: './table-bar-dialog.component.html'
 })
-export class Table_barDialogComponent implements OnInit {
+export class TableBarDialogComponent implements OnInit {
 
-    table_bar: Table_bar;
+    table_bar: TableBar;
     isSaving: boolean;
 
     constructor(
         public activeModal: NgbActiveModal,
-        private table_barService: Table_barService,
+        private tableBarService: TableBarService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -38,20 +38,20 @@ export class Table_barDialogComponent implements OnInit {
         this.isSaving = true;
         if (this.table_bar.id !== undefined) {
             this.subscribeToSaveResponse(
-                this.table_barService.update(this.table_bar));
+                this.tableBarService.update(this.table_bar));
         } else {
             this.subscribeToSaveResponse(
-                this.table_barService.create(this.table_bar));
+                this.tableBarService.create(this.table_bar));
         }
     }
 
-    private subscribeToSaveResponse(result: Observable<HttpResponse<Table_bar>>) {
-        result.subscribe((res: HttpResponse<Table_bar>) =>
+    private subscribeToSaveResponse(result: Observable<HttpResponse<TableBar>>) {
+        result.subscribe((res: HttpResponse<TableBar>) =>
             this.onSaveSuccess(res.body), (res: HttpErrorResponse) => this.onSaveError());
     }
 
-    private onSaveSuccess(result: Table_bar) {
-        this.eventManager.broadcast({ name: 'table_barListModification', content: 'OK'});
+    private onSaveSuccess(result: TableBar) {
+        this.eventManager.broadcast({ name: 'tableBarListModification', content: 'OK'});
         this.isSaving = false;
         this.activeModal.dismiss(result);
     }
@@ -65,23 +65,21 @@ export class Table_barDialogComponent implements OnInit {
     selector: 'jhi-table-bar-popup',
     template: ''
 })
-export class Table_barPopupComponent implements OnInit, OnDestroy {
+export class TableBarPopupComponent implements OnInit, OnDestroy {
 
     routeSub: any;
 
     constructor(
         private route: ActivatedRoute,
-        private table_barPopupService: Table_barPopupService
+        private tableBarPopupService: TableBarPopupService
     ) {}
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
             if ( params['id'] ) {
-                this.table_barPopupService
-                    .open(Table_barDialogComponent as Component, params['id']);
+                this.tableBarPopupService.open(TableBarDialogComponent as Component, params['id']);
             } else {
-                this.table_barPopupService
-                    .open(Table_barDialogComponent as Component);
+                this.tableBarPopupService.open(TableBarDialogComponent as Component);
             }
         });
     }
